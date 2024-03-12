@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user.v1;
+
+option go_package = "usersvr/api/user/v1;v1";
+
+service User {
+  rpc Register (RegisterRequest) returns (RegisterReply); // 注册用户
+}
+
+// rpc 调用的请求
+message RegisterRequest {
+  string account = 1;
+  string password = 2;
+  string checkPassword = 3;
+}
+
+// 返回值
+message RegisterReply {
+  int64 id = 1;
+}
